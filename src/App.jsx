@@ -1,25 +1,56 @@
 import "./App.css";
-import ContactForm from "./components/ContactForm/ContactForm";
-import SearchBox from "./components/SearchBox/SearchBox";
-import ContactList from "./components/ContactList/ContactList";
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { apiGetContacts } from './redux/contactsOps.js';
+import { Suspense, lazy, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { apiRefreshUser } from "./redux/auth/operations.js";
+import { Routes, Route } from "react-router-dom";
+import Layout from "./components/Layout/Layout.jsx";
+import RestrictedRoute from "./components/RestrictedRoute/RestrictedRoute.jsx";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute.jsx";
+import Loader from "./components/Loader/Loader.jsx";
+const WelcomePage = lazy(() => import("./pages/WelcomePage"));
+const LoginPage = lazy(() => import("./pages/LoginPage.jsx"));
+const Register = lazy(() => import("./pages/RegisterPage.jsx"));
+const Contacts = lazy(() => import("./pages/ContactsPage.jsx"));
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(apiGetContacts());
+    dispatch(apiRefreshUser());
   }, [dispatch]);
 
   return (
-    <div className="container">
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <SearchBox />
-      <ContactList />
-    </div>
+    <Layout>
+      <Suspense fallback={<Loader />}>
+        <Routes>
+          <Route path="/" element={<WelcomePage />} />
+          <Route
+            path="/register"
+            element={
+              <RestrictedRoute>
+                <Register />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <RestrictedRoute>
+                <LoginPage />
+              </RestrictedRoute>
+            }
+          />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute>
+                <Contacts />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </Suspense>
+    </Layout>
   );
 }
 

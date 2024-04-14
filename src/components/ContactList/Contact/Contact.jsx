@@ -1,14 +1,14 @@
 import styles from "./Contact.module.css";
 import { MdPerson } from "react-icons/md";
 import { MdPhone } from "react-icons/md";
-import { apiDelContacts } from "../../../redux/contactsOps";
+import { apiDeleteUserContact } from "../../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 
 const Contact = ({ data }) => {
   const dispatch = useDispatch();
 
   const handleDeleteContact = () => {
-    dispatch(apiDelContacts(data.id));
+    dispatch(apiDeleteUserContact(data.id));
   };
 
   return (

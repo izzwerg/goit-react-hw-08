@@ -1,7 +1,7 @@
 import styles from "./ContactForm.module.css";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { apiPostContacts } from '../../redux/contactsOps';
+import { apiAddUserContact } from "../../redux/contacts/operations";
 import { useDispatch } from "react-redux";
 
 const contactSchema = Yup.object().shape({
@@ -26,7 +26,7 @@ const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = (data, formActions) => {
-    dispatch(apiPostContacts(data));
+    dispatch(apiAddUserContact(data));
     formActions.resetForm();
   };
 
