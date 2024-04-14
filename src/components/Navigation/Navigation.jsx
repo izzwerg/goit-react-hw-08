@@ -26,7 +26,7 @@ const Navigation = () => {
         Contacts
       </NavLink>
       <span>Hello, {userData.name}</span>
-      <button type="button" onClick={onLogOut}>
+      <button className={css.link} type="button" onClick={onLogOut}>
         Logout
       </button>
     </>
