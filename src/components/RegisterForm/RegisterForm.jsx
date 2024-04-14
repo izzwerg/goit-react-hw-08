@@ -36,29 +36,35 @@ const RegisterForm = ({ onRegister }) => {
       <Form className={css.form}>
         <h2 className={css.title}>Register</h2>
         <label className={css.label}>
-          <span className={css.ltext}>User name</span>
+          <span className={css.text}>User name</span>
           <Field
-            className={css.finput}
+            className={css.input}
             placeholder="John Dow"
             type="text"
             name="name"
           />
-          <ErrorMessage />
+          <ErrorMessage 
+          className={css.error}
+          name="password"
+          component="span"/>
         </label>
         <label className={css.label}>
-          <span className={css.ltext}>Email</span>
+          <span className={css.text}>Email</span>
           <Field
-            className={css.finput}
+            className={css.input}
             placeholder="mail@domain.com"
             type="text"
             name="email"
           />
-          <ErrorMessage />
+          <ErrorMessage 
+          className={css.error}
+          name="password"
+          component="span"/>
         </label>
         <label className={css.label}>
-          <span className={css.ltext}>Password</span>
+          <span className={css.text}>Password</span>
           <Field
-            className={css.finput}
+            className={css.input}
             placeholder="Enter your password"
             type="password"
             name="password"

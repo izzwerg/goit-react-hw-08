@@ -34,24 +34,32 @@ const LoginForm = () => {
       <Form className={css.form}>
         <h2 className={css.title}>Login:</h2>
         <label className={css.label}>
-          <span className={css.ltext}>Email:</span>
+          <span className={css.text}>Email:</span>
           <Field
-            className={css.finput}
+            className={css.input}
             placeholder="mail@domain.com"
             type="text"
             name="email"
           />
-          <ErrorMessage />
+          <ErrorMessage
+            className={css.error}
+            name="password"
+            component="span"
+          />
         </label>
         <label className={css.label}>
-          <span className={css.ltext}>Password:</span>
+          <span className={css.text}>Password:</span>
           <Field
-            className={css.finput}
+            className={css.input}
             placeholder="Enter your password"
             type="password"
             name="password"
           />
-          <ErrorMessage />
+          <ErrorMessage
+            className={css.error}
+            name="password"
+            component="span"
+          />
         </label>
         <button
           className={css.button}
