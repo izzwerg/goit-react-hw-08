@@ -19,11 +19,13 @@ const ContactList = () => {
       {isLoading && <Loader />}
       {isError && <ErrorMessage />}
       <ul className={styles.list}>
-        {contacts.map((contact) => (
-          <li className={styles.item} key={contact.id}>
-            <Contact data={contact} />
-          </li>
-        ))}
+        {contacts &&
+          contacts !== null &&
+          contacts.map((contact) => (
+            <li className={styles.item} key={contact.id}>
+              <Contact data={contact} />
+            </li>
+          ))}
       </ul>
     </>
   );
