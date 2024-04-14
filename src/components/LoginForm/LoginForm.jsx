@@ -32,12 +32,11 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
     >
       <Form className={css.form}>
-        <h2 className={css.title}>Login</h2>
-
+        <h2 className={css.title}>Login:</h2>
         <label className={css.label}>
-          <span className={css.text}>Email:</span>
+          <span className={css.ltext}>Email:</span>
           <Field
-            className={css.input}
+            className={css.finput}
             placeholder="mail@domain.com"
             type="text"
             name="email"
@@ -45,16 +44,15 @@ const LoginForm = () => {
           <ErrorMessage />
         </label>
         <label className={css.label}>
-          <span className={css.text}>Password:</span>
+          <span className={css.ltext}>Password:</span>
           <Field
-            className={css.input}
+            className={css.finput}
             placeholder="Enter your password"
             type="password"
             name="password"
           />
           <ErrorMessage />
         </label>
-
         <button
           className={css.button}
           type="submit"

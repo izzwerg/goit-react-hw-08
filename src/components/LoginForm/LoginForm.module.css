@@ -18,23 +18,23 @@
     margin-bottom: 12px;
 }
 
-.text {
+.ltext {
     font-size: 14px;
 }
 
-.input {
+.finput {
     padding: 8px 15px;
 }
 
 .button {
     display: flex;
     margin-left: auto;
-    background-color: yellow;
+    background-color: white;
     padding: 12px 15px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    border: 1px solid blue;
+    border: 1px solid black;
     border-radius: 8px;
-    color: blue;
+    color: black;
 }

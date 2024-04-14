@@ -35,11 +35,10 @@ const RegisterForm = ({ onRegister }) => {
     >
       <Form className={css.form}>
         <h2 className={css.title}>Register</h2>
-
         <label className={css.label}>
-          <span className={css.text}>User name:</span>
+          <span className={css.ltext}>User name</span>
           <Field
-            className={css.input}
+            className={css.finput}
             placeholder="John Dow"
             type="text"
             name="name"
@@ -47,9 +46,9 @@ const RegisterForm = ({ onRegister }) => {
           <ErrorMessage />
         </label>
         <label className={css.label}>
-          <span className={css.text}>Email:</span>
+          <span className={css.ltext}>Email</span>
           <Field
-            className={css.input}
+            className={css.finput}
             placeholder="mail@domain.com"
             type="text"
             name="email"
@@ -57,9 +56,9 @@ const RegisterForm = ({ onRegister }) => {
           <ErrorMessage />
         </label>
         <label className={css.label}>
-          <span className={css.text}>Password:</span>
+          <span className={css.ltext}>Password</span>
           <Field
-            className={css.input}
+            className={css.finput}
             placeholder="Enter your password"
             type="password"
             name="password"
